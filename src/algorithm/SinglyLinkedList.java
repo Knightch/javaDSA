@@ -35,11 +35,24 @@ public class SinglyLinkedList {
 		}
 		return count;
 	}
-	// Insert item in singlyLinkedList
+	// Insert item in singlyLinkedList from start
 	public void insertItem(int data) {
 		ListNode newNode = new ListNode(data);
 		 newNode.next = head;
 		 head = newNode;
+	}
+	// Insert item in singlyLinkedList from end
+	public void insertItemFromLast(int data) {
+		ListNode newNode = new ListNode(data);
+		if(head == null) {
+			head = newNode;
+			return;
+		}
+		ListNode current = head;
+		while(null!= current.next) {
+			current = current.next;
+		}
+		current.next = newNode;
 	}
 	
 	public static void main(String[] args) {
@@ -49,15 +62,20 @@ public class SinglyLinkedList {
 //		ListNode third = new ListNode(8);
 //		ListNode fourth = new ListNode(11);
 //		
-//		//Now we will connect them together to form a chain
+//		Now we will connect them together to form a chain
 //		sll.head.next = second;
 //		second.next = third;
 //		third.next = fourth;
 //		
-		sll.insertItem(11);
-		sll.insertItem(10);
-		sll.insertItem(9);
 		sll.insertItem(8);
+		sll.insertItem(9);
+		sll.insertItem(10);
+		sll.insertItem(11);
+		sll.insertItemFromLast(9);
+		sll.insertItemFromLast(10);
+		sll.insertItemFromLast(11);
+		sll.insertItemFromLast(12);
+		sll.insertItemFromLast(13);
 		sll.display();
 		System.out.println("number of items in list " + sll.countLinkList());
 	}
